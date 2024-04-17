@@ -1,0 +1,37 @@
+.DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# package-lock.json
+# config/prod.env.js
+# .babelrc
+# .editorconfig
+# static/.gitkeep
+# src/assets/logo.png
+# src/main.js
+# config/index.js
+# config/dev.env.js
+# .postcssrc.js
+# index.html
+# package.json
+# README.md
+# build/build.js
+# build/check-versions.js
+# build/logo.png
+# build/utils.js
+# build/vue-loader.conf.js
+# build/webpack.base.conf.js
+# build/webpack.dev.conf.js
+# build/webpack.prod.conf.js
+# .gitignore
