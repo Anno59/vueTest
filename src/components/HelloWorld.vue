@@ -5,13 +5,15 @@
       v-if="show"
       v-for="todo in todos"
       @[click]="handleClick"
-      v-once
       class="dd"
       :class="message"
     >
-      {{ foo }}{{ todo.text }}
+      {{ foo }}{{ todo.text }}{{ message }}
     </h1>
-    <input v-model="message" />
+    <input id="John" type="checkbox" value="John" v-model="message" />
+    <textarea name="" id="" cols="30" rows="10" v-model="textarea"></textarea>
+    <input type="radio" v-model="picked" :value="a">
+    <input v-model.lazy="msg">
   </div>
 </template>
 
@@ -20,9 +22,12 @@ let a = {
   msg: "Welcome to Your Vue.js App",
   show: true,
   todos: [{ text: 1 }, { text: 2 }, { text: 3 }],
-  message: 1,
+  message: [],
   rawHtml: `<h1>222</h1>`,
   click: "click",
+  textarea: "textarea",
+  picked: '',
+  a: [1]
 };
 
 // Object.freeze(a)

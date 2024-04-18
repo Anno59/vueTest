@@ -5,9 +5,22 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-// Vue.components('todo-item', {
-//   template: '<li>test</li>'
-// })
+Vue.component('todolist', {
+  inheritAttrs: false,
+  props: {
+    'postTitle': String,
+    'value': {
+      type: Number,
+      default: 100
+    },
+  },
+  data: function() {
+    return {
+      count: 0
+    }
+  },
+  template: '<div class="a" :title="postTitle"><input class="a1"  @input="$emit(`input`, $event.target.value)" :value="value"></input><slot></slot>{{value}}</div>'
+})
 
 
 /* eslint-disable no-new */
