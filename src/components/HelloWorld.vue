@@ -1,83 +1,90 @@
 <template>
-  <div class="hello">
-    <h1
-      :title="`id${msg.split('').reverse().join('')}`"
-      v-if="show"
-      v-for="todo in todos"
-      @[click]="handleClick"
-      class="dd"
-      :class="message"
-    >
-      {{ foo }}{{ todo.text }}{{ message }}
-    </h1>
-    <input id="John" type="checkbox" value="John" v-model="message" />
-    <textarea name="" id="" cols="30" rows="10" v-model="textarea"></textarea>
-    <input type="radio" v-model="picked" :value="a">
-    <input v-model.lazy="msg">
+<div class="hello">
+  <h1>{{ msg }}</h1>
+  <div v-html="msg1" v-bind:id="id">
+
   </div>
+  <div class="">
+    {{number+1}}
+  </div>
+  <p v-if="seen">现在你又看到我了</p>
+  <p v-else>你失败了</p>
+  <div v-n="4">
+
+  </div>
+  <div :class="[a1,a2]">
+    我借你{{money}},你还我{{a}},还剩{{b}}
+  </div>
+  <div :class="{'test-1':a3}">
+    style object
+  </div>
+  <div :class="obj">
+    style obj
+  </div>
+
+  <ul>
+    <li v-for="(item,idx) in list" :key="item">
+      {{item}},{{idx}}
+    </li>
+  </ul>
+
+  <ul>
+    <template v-for="item in list">
+      <li :key="item+1">hello</li>
+      <li :key="item">{{item}}</li>
+    </template>
+  </ul>
+
+</div>
 </template>
 
 <script>
-let a = {
-  msg: "Welcome to Your Vue.js App",
-  show: true,
-  todos: [{ text: 1 }, { text: 2 }, { text: 3 }],
-  message: [],
-  rawHtml: `<h1>222</h1>`,
-  click: "click",
-  textarea: "textarea",
-  picked: '',
-  a: [1]
-};
-
-// Object.freeze(a)
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
   data() {
-    return a;
-  },
-  methods: {
-    handleClick: function () {
-      console.log(1);
-    },
-  },
-  created: function () {
-    console.log("a is: " + this.a);
+    return {
+      msg1: '<span style="color:red;">HelloWorld</span>',
+      id: 'txt',
+      number: 1,
+      seen: true,
+      money: 1000,
+      a: 10,
+      a1: 'test-1',
+      a2: 'test-2',
+      a3: false,
+      obj: {
+        'test-1': false
+      },
+      list: ['a', 'b', 'c', 'd']
+    }
   },
   computed: {
-    foo: {
-      get: function () {
-        return this.msg.split("").reverse().join("");
-      },
-      set: function (newValue) {
-        console.log(2222)
-        console.log(newValue)
-        this.msg = 'Welcome'
-      },
-    },
-  },
-  // watch: {
-  //   message: function(new, old){
-  //     console.log(new, old)
-  //   }
-  // }
-};
+    b: function () {
+      return this.money - this.a
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+h3 {
+  margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
 }
+
 li {
   display: inline-block;
   margin: 0 10px;
 }
+
 a {
   color: #42b983;
 }
