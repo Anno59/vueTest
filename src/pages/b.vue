@@ -1,10 +1,10 @@
 <template>
-  <Form :options-a="options" label-width="200"/>
+  <h1>1</h1>
 </template>
 
 <script>
 import Form from "../components/Form/form-container";
-
+// import Table from "../components/Table/index";
 export default {
   name: "App",
   data: function() {
